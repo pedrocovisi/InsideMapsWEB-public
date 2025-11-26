@@ -1,0 +1,882 @@
+/* ============================= */
+/* ====== 1. VARIÁVEIS CSS (CUSTOM PROPERTIES) ====== */
+/* ============================= */
+:root {
+    /* Cores principais */
+    --primary-green: #1fb183;
+    --primary-green-hover: #348C70;
+    --primary-green-dark: #248c60;
+
+    /* Cores de texto */
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --text-muted: #6c757d;
+    --text-muted-hover: #495057;
+
+    /* Cores de fundo */
+    --bg-light: #ffffff;
+    --bg-dark: #464545;
+    --bg-navbar-dark: #414141;
+    --bg-input-dark: #2c2c2c;
+    --bg-footer-dark: #343a40;
+
+    /* Cores de erro */
+    --error-color: #e74c3c;
+    --error-bg-light: #fdf2f2;
+    --error-bg-dark: #3d2828;
+    --error-text-dark: #ff6b6b;
+
+    /* Espaçamentos */
+    --navbar-height: 80px;
+    --border-radius: 10px;
+    --border-radius-large: 30px;
+    --transition-speed: 0.3s;
+    --transition-speed-slow: 0.5s;
+
+    /* Tamanhos de fonte */
+    --font-size-banner-h1: 3rem;
+    --font-size-banner-p: 1.25rem;
+    --font-size-navbar: 1.2rem;
+    --font-size-navbar-brand: 1.8rem;
+    --font-size-icon-person: 1.7rem;
+    --font-size-plan-title: 1.5rem;
+    --font-size-price: 2rem;
+    --font-size-card-body: 1.1rem;
+
+    /* Sombras */
+    --box-shadow-form: 0 10px 20px rgba(0, 0, 0, 0.3);
+    --box-shadow-focus: 0 0 0 0.2rem rgba(31, 177, 131, 0.25);
+    --box-shadow-error: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+}
+
+/* ============================= */
+/* ====== 2. RESET E BASE ====== */
+/* ============================= */
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    padding-top: var(--navbar-height);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================= */
+/* ====== 3. LAYOUT - NAVBAR ====== */
+/* ============================= */
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-navbar-brand) !important;
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited,
+.navbar-brand:link {
+    color: inherit !important;
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.navbar-brand img {
+    margin-right: 3%;
+}
+
+.navbar-nav {
+    font-size: var(--font-size-navbar);
+    margin-right: 2%;
+    align-items: center;
+}
+
+.navbar-nav a {
+    margin-right: 1%;
+    margin-left: 1%;
+    display: flex;
+    align-items: center;
+    transition: transform var(--transition-speed) ease-in-out,
+        color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a:hover {
+    transform: var(--transform-hover-card);
+}
+
+.bi-person {
+    font-size: var(--font-size-icon-person);
+}
+
+.btn-group .btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    /* Ajuste conforme o tamanho desejado */
+    padding: 0.5rem 0.75rem;
+}
+
+.btn-group i,
+.btn-group svg {
+    font-size: 1.3rem;
+    /* Deixe igual ao do membros.html */
+    vertical-align: middle;
+    line-height: 1;
+}
+
+
+
+/* ============================= */
+/* ====== 4. LAYOUT - FOOTER ====== */
+/* ============================= */
+.app-icons {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.app-icon {
+    width: 200px;
+    height: auto;
+    margin: 0 10px;
+}
+
+.text-center {
+    margin-top: 0;
+}
+
+/* ============================= */
+/* ====== 5. COMPONENTES - FORMULÁRIOS ====== */
+/* ============================= */
+.container.margin-top {
+    margin-top: 200px;
+}
+
+.container.margin-bottom {
+    margin-bottom: 180px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-form);
+    transition: background-color 0.5s ease-in-out;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    transition: border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background-color var(--transition-speed) ease !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary-green) !important;
+    box-shadow: var(--box-shadow-focus) !important;
+}
+
+/* Transições para inputs e textareas */
+.form-control,
+input,
+textarea,
+select {
+    transition: background-color var(--transition-speed-slow) ease-in-out,
+        color var(--transition-speed-slow) ease-in-out,
+        border-color var(--transition-speed) ease-in-out !important;
+}
+
+/* Transições para labels */
+.form-label,
+label {
+    transition: color var(--transition-speed-slow) ease-in-out;
+}
+
+/* Transições para placeholders */
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder {
+    transition: color var(--transition-speed-slow) ease-in-out;
+}
+
+/* ============================= */
+/* ====== 6. COMPONENTES - BOTÕES ====== */
+/* ============================= */
+.btn-primary {
+    background-color: var(--primary-green) !important;
+    border: none !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: transform var(--transition-speed),
+        background-color 0.5s ease-in-out !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-green-hover) !important;
+}
+
+.btn-primary:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    transform: none !important;
+}
+
+.btn-primary:disabled:hover {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    transform: none !important;
+}
+
+/* ============================= */
+/* ====== 7. COMPONENTES - LINKS ====== */
+/* ============================= */
+.link-primary {
+    color: var(--primary-green) !important;
+    text-decoration-color: var(--primary-green) !important;
+    transition: color var(--transition-speed) ease-in-out;
+}
+
+.link-primary:hover {
+    color: var(--primary-green-hover) !important;
+    text-decoration-color: var(--primary-green-hover) !important;
+}
+
+/* ============================= */
+/* ====== 8. COMPONENTES - TOGGLE DE SENHA ====== */
+/* ============================= */
+.password-container {
+    position: relative;
+}
+
+.password-toggle,
+.password-toggle:focus,
+.password-toggle:active,
+.password-toggle:focus:active,
+.password-toggle:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none !important;
+    border: none !important;
+    cursor: pointer;
+    color: var(--text-muted) !important;
+    font-size: 1.1rem;
+    padding: 0;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover,
+.password-toggle:focus,
+.password-toggle:active {
+    color: var(--text-muted-hover) !important;
+    background: none !important;
+    border: none !important;
+}
+
+.password-input {
+    padding-right: 40px !important;
+    transition: padding-right 0.2s ease;
+}
+
+/* ============================= */
+/* ====== 9. COMPONENTES - CALENDÁRIO ====== */
+/* ============================= */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.1rem;
+    opacity: 1;
+    transition: color 0.2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    color: var(--text-muted-hover);
+}
+
+/* ============================= */
+/* ====== 10. COMPONENTES - VALIDAÇÃO ====== */
+/* ============================= */
+.campo-erro {
+    border: 2px solid var(--error-color) !important;
+    background-color: var(--error-bg-light) !important;
+    box-shadow: var(--box-shadow-error) !important;
+    transition: border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background-color var(--transition-speed) ease !important;
+}
+
+.campo-erro:focus {
+    border-color: var(--error-color) !important;
+    box-shadow: var(--box-shadow-error) !important;
+    outline: none !important;
+}
+
+.erro-mensagem {
+    color: var(--error-color) !important;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.campo-valido {
+    border: 2px solid var(--primary-green) !important;
+    background-color: #f0fff4 !important;
+    transition: border-color var(--transition-speed) ease,
+        background-color var(--transition-speed) ease !important;
+}
+
+.mb-3 {
+    position: relative;
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-3:has(.erro-mensagem) {
+    margin-bottom: 2rem !important;
+}
+
+/* ============================= */
+/* ====== 11. COMPONENTES - LOADING ====== */
+/* ============================= */
+.btn-loading {
+    position: relative;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid var(--text-light);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+/* ============================= */
+/* ====== 12. TEMA PADRÃO (CLARO) ====== */
+/* ============================= */
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.navbar {
+    background-color: var(--bg-light) !important;
+    transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.navbar-brand {
+    color: var(--text-dark);
+    transition: color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a {
+    color: var(--text-dark) !important;
+    transition: color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a:hover {
+    color: var(--primary-green) !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-green) !important;
+}
+
+.contact-hero {
+    text-align: center;
+    padding: 40px 15px;
+}
+
+/* .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-green);
+} */
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 15px auto 0;
+}
+
+.business-cta-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: var(--border-radius-large);
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: background var(--transition-speed-slow) ease-in-out, box-shadow var(--transition-speed-slow) ease-in-out;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-green-dark);
+    transition: color var(--transition-speed-slow) ease-in-out;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 10px auto 0;
+    transition: color var(--transition-speed-slow) ease-in-out;
+}
+
+.info-card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    transition: color var(--transition-speed-slow) ease-in-out;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    transition: color var(--transition-speed-slow) ease-in-out;
+}
+
+.benefits-list i {
+    color: var(--primary-green);
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.establishment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+/* --- ESTILOS MELHORADOS PARA OS ITENS DE ESTABELECIMENTO --- */
+.establishment-item {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    /* Fundo transparente para um visual mais limpo */
+    border: 1px solid #e0e0e0;
+    /* Borda sutil */
+    color: var(--text-dark);
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.establishment-item i {
+    color: var(--primary-green);
+    /* Ícone verde para destaque */
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.establishment-item:hover {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    color: var(--text-light);
+    /* Texto fica branco no hover */
+    transform: translateY(-3px);
+}
+
+.establishment-item:hover i {
+    color: var(--text-light);
+    /* Ícone também fica branco no hover */
+}
+
+.cta-banner {
+    background: var(--primary-green);
+    color: var(--text-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-top: 40px;
+    transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.cta-banner h3 {
+    font-weight: 700;
+}
+
+.cta-banner .btn-light {
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--primary-green), rgba(0, 0, 0, 0));
+}
+
+.form-select {
+    transition: border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background-color var(--transition-speed) ease !important;
+}
+
+
+footer {
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+    transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+footer a {
+    color: var(--text-dark);
+    transition: color var(--transition-speed) ease-in-out;
+}
+
+/* Formulários modo claro */
+.form-container {
+    background-color: var(--bg-light);
+    transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+input,
+textarea {
+    background-color: var(--bg-light) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid #dee2e6;
+    transition: background-color var(--transition-speed) ease-in-out,
+        color var(--transition-speed) ease-in-out,
+        border-color var(--transition-speed) ease-in-out;
+}
+
+/* ============================= */
+/* ====== 13. TEMA ESCURO ====== */
+/* ============================= */
+.escuro body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.escuro .navbar {
+    background-color: var(--bg-navbar-dark) !important;
+}
+
+.escuro .navbar-brand {
+    color: var(--text-light);
+}
+
+.escuro .navbar-nav a {
+    color: var(--text-light) !important;
+}
+
+.escuro .navbar-nav a:hover {
+    color: var(--primary-green) !important;
+}
+
+.escuro .navbar-nav .nav-link.active {
+    color: var(--primary-green-dark) !important;
+}
+
+.escuro footer {
+    background-color: var(--bg-footer-dark);
+    color: var(--text-light);
+}
+
+.escuro footer a {
+    color: var(--text-light);
+}
+
+.escuro footer a:hover {
+    color: #17a2b8;
+}
+
+/* Formulários modo escuro */
+.escuro .form-container {
+    background-color: var(--bg-dark) !important;
+}
+
+.escuro input,
+.escuro textarea {
+    background-color: var(--bg-input-dark) !important;
+    color: var(--text-light) !important;
+    border: 1px solid #555;
+}
+
+.escuro input:focus,
+.escuro textarea:focus {
+    color: var(--text-light) !important;
+    border: 1px solid #777;
+    outline: none !important;
+}
+
+.escuro input:-webkit-autofill,
+.escuro input:-webkit-autofill:hover,
+.escuro input:-webkit-autofill:focus,
+.escuro input:-webkit-autofill:active,
+.escuro textarea:-webkit-autofill,
+.escuro textarea:-webkit-autofill:hover,
+.escuro textarea:-webkit-autofill:focus,
+.escuro textarea:-webkit-autofill:active,
+.escuro select:-webkit-autofill,
+.escuro select:-webkit-autofill:hover,
+.escuro select:-webkit-autofill:focus,
+.escuro select:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--bg-input-dark) inset !important;
+    box-shadow: 0 0 0 1000px var(--bg-input-dark) inset !important;
+    background-color: var(--bg-input-dark) !important;
+    -webkit-text-fill-color: var(--text-light) !important;
+    color: var(--text-light) !important;
+    caret-color: var(--text-light) !important;
+    border: 1px solid #555 !important;
+    transition: background-color 0s, color 0s;
+}
+
+
+/* Toggle senha modo escuro */
+.escuro .password-toggle,
+.escuro .password-toggle:hover,
+.escuro .password-toggle:focus,
+.escuro .password-toggle:active {
+    color: #adb5bd !important;
+}
+
+.escuro .password-toggle:hover {
+    color: var(--text-light) !important;
+}
+
+/* Calendário modo escuro */
+.escuro input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #adb5bd;
+    filter: invert(1);
+}
+
+.escuro input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    color: var(--text-light);
+}
+
+/* Validação modo escuro */
+.escuro .campo-erro {
+    border: 2px solid var(--error-color) !important;
+    background-color: var(--error-bg-dark) !important;
+    color: var(--text-light) !important;
+}
+
+.escuro .campo-erro:focus {
+    color: var(--text-light) !important;
+}
+
+.escuro .erro-mensagem {
+    color: var(--error-text-dark) !important;
+}
+
+.escuro .campo-valido {
+    border: 2px solid var(--primary-green) !important;
+    background-color: #2d3f2d !important;
+    color: var(--text-light) !important;
+}
+
+.escuro .form-control:focus {
+    border-color: var(--primary-green) !important;
+    box-shadow: var(--box-shadow-focus) !important;
+}
+
+.escuro .business-cta-section {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #3a3a3a 100%);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.escuro .info-card {
+    background: var(--bg-card-dark);
+}
+
+/* --- ESTILOS MELHORADOS PARA TEMA ESCURO --- */
+.escuro .establishment-item {
+    border-color: #555;
+    /* Borda mais escura para o tema escuro */
+    color: var(--text-light);
+}
+
+.escuro .establishment-item:hover {
+    background-color: var(--primary-green-hover);
+    /* Tom de verde um pouco diferente para o hover no escuro */
+    border-color: var(--primary-green-hover);
+}
+
+.escuro .cta-banner {
+    background: var(--primary-green-dark);
+}
+
+.escuro .cta-banner .btn-light {
+    background-color: var(--text-light);
+    color: var(--primary-green-dark);
+}
+
+.escuro .form-select {
+    background-color: var(--bg-input-dark) !important;
+    color: var(--text-light) !important;
+    border-color: #555 !important;
+}
+
+.escuro .section-divider {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), var(--primary-green), rgba(255, 255, 255, 0));
+}
+
+/* ============================= */
+/* ====== 14. RESPONSIVIDADE ====== */
+/* ============================= */
+
+@media (max-width: 576px) {
+    .app-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-icon {
+        width: 180px !important;
+        margin: 5px 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .business-cta-section {
+        padding: 30px 20px;
+    }
+
+    .cta-banner .btn {
+        width: 100%;
+    }
+}
+
+/* ======================================= */
+/* ====== BOTÃO DE ALTERNAR TEMA ======= */
+/* ======================================= */
+
+#theme-toggle {
+    font-size: 1.2rem;
+    /* Tamanho do ícone */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    /* Remove o brilho do foco */
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Garante que os ícones não "escapem" durante a transição */
+}
+
+#theme-toggle .theme-icon-light,
+#theme-toggle .theme-icon-dark {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: absolute;
+    /* Coloca os ícones um sobre o outro */
+}
+
+/* === Estado Padrão (Tema Claro) === */
+/* A lua está visível */
+#theme-toggle .theme-icon-dark {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* O sol está escondido */
+#theme-toggle .theme-icon-light {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Começa um pouco abaixo */
+}
+
+
+/* === Quando o Tema Escuro está Ativo === */
+/* A lua fica escondida */
+.escuro #theme-toggle .theme-icon-dark {
+    opacity: 0;
+    transform: translateY(-20px);
+    /* Sobe para sair */
+}
+
+/* O sol fica visível */
+.escuro #theme-toggle .theme-icon-light {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Adicione esta regra ao seu CSS */
+.escuro #theme-toggle .theme-icon-light {
+    color: var(--text-light);
+    /* Usa a variável de cor de texto claro (branco) */
+}

@@ -1,0 +1,1113 @@
+/* ============================= */
+/* ====== 1. VARIÁVEIS CSS (CUSTOM PROPERTIES) ====== */
+/* ============================= */
+:root {
+  /* Cores principais */
+  --primary-green: #1fb183;
+  --primary-green-hover: #348C70;
+  --primary-green-dark: #248c60;
+
+  /* Cores de texto */
+  --text-light: #ffffff;
+  --text-dark: #000000;
+  --text-muted: #6c757d;
+  --text-muted-hover: #495057;
+
+  /* Cores de fundo */
+  --bg-light: #ffffff;
+  --bg-dark: #464545;
+  --bg-navbar-dark: #414141;
+  --bg-footer-light: #f8f9fa;
+  --bg-footer-dark: #343a40;
+  --bg-card-light: #ffffff;
+  --bg-card-dark: #3f3f3f;
+  --bg-banner-dark: #1c1c1c;
+
+  /* Cores específicas do index */
+  --card-header-dark: #348C70;
+  --card-shadow-light: rgba(0, 0, 0, 0.3);
+  --card-shadow-dark: rgba(255, 255, 255, 0.1);
+  --banner-shadow: rgba(0, 0, 0, 0.2);
+
+  /* Espaçamentos */
+  --navbar-height: 80px;
+  --border-radius: 10px;
+  --border-radius-large: 30px;
+  --transition-speed: 0.3s;
+  --transition-speed-slow: 0.5s;
+
+  /* Tamanhos de fonte */
+  --font-size-banner-h1: 3rem;
+  --font-size-banner-p: 1.25rem;
+  --font-size-navbar: 1.2rem;
+  --font-size-navbar-brand: 1.8rem;
+  --font-size-icon-person: 1.7rem;
+  --font-size-plan-title: 1.5rem;
+  --font-size-price: 2rem;
+  --font-size-card-body: 1.1rem;
+
+  /* Sombras */
+  --box-shadow-banner: 0 8px 16px var(--banner-shadow);
+  --box-shadow-card: 0 10px 20px var(--card-shadow-light);
+  --box-shadow-card-dark: 0 4px 20px var(--card-shadow-dark);
+
+  /* NOVAS VARIÁVEIS PARA FUNDO DE SEÇÃO */
+  --bg-section-variant-light: #d2d7db;
+  /* Um cinza muito claro para o tema claro */
+  --bg-section-variant-dark: #2c3034;
+  /* Um cinza escuro para o tema escuro */
+}
+
+/* ============================= */
+/* ====== 2. RESET E BASE ====== */
+/* ============================= */
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  padding-top: var(--navbar-height);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+  transition: background-color var(--transition-speed-slow) ease-in-out,
+    color var(--transition-speed-slow) ease-in-out !important;
+}
+
+h2 {
+  font-weight: 700 !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================= */
+/* ====== 3. LAYOUT - NAVBAR ====== */
+/* ============================= */
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-navbar-brand) !important;
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited,
+.navbar-brand:link {
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.navbar-brand img {
+  margin-right: 3%;
+}
+
+.navbar-nav {
+  font-size: var(--font-size-navbar);
+  margin-right: 2%;
+  align-items: center;
+}
+
+.navbar-nav a {
+  margin-right: 1%;
+  margin-left: 1%;
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out !important;
+}
+
+.navbar-nav a:hover {
+  transform: var(--transform-hover-card);
+}
+
+.bi-person {
+  font-size: var(--font-size-icon-person);
+}
+
+.btn-group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  height: 100%;
+  /* Garante altura uniforme */
+}
+
+.btn-group i,
+.btn-group svg {
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 1.2rem;
+  /* Ajuste para o mesmo tamanho dos ícones do membros.html */
+}
+
+
+
+
+
+/* ============================= */
+/* ====== 4. LAYOUT - FOOTER ====== */
+/* ============================= */
+footer {
+  padding: 30px 0;
+}
+
+.app-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.app-icon {
+  width: 150px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.text-center {
+  margin-top: 0;
+}
+
+/* ============================= */
+/* ====== 5. COMPONENTES - BANNER ====== */
+/* ============================= */
+.banner-container {
+  position: relative;
+  width: 83%;
+  margin: 40px auto 0;
+  min-height: 50vh;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  box-shadow: var(--box-shadow-banner);
+  display: flex;
+  align-items: stretch;
+}
+
+.banner {
+  flex: 1;
+  position: relative;
+  background-image: url('../assets/gem1.png');
+  background-size: cover;
+  background-position: center left;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px;
+  border-radius: var(--border-radius-large);
+}
+
+.banner-text {
+  color: var(--text-light);
+  max-width: 600px;
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.banner h1 {
+  font-size: var(--font-size-banner-h1);
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+.banner p {
+  font-size: var(--font-size-banner-p);
+  margin-bottom: 30px;
+  color: var(--text-light);
+}
+
+.banner .btn {
+  align-self: flex-start;
+}
+
+  /* ============================= */
+  /* ====== 6. COMPONENTES - CARDS DE PLANOS ====== */
+  /* ============================= */
+  .pricing-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .pricing-header p {
+    font-size: 1.2rem;
+  }
+
+  .card-plan {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-card) !important;
+    transition: transform var(--transition-speed),
+      background-color var(--transition-speed-slow) ease-in-out !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    flex-grow: 1;
+    min-height: 100%;
+    background-color: var(--bg-card-light);
+  }
+
+  .card-plan:hover {
+    transform: translateY(-5px) !important;
+  }
+
+  .card-header {
+    font-weight: bold;
+    padding: 15px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    vertical-align: center;
+    width: 100%;
+  }
+
+  .plan-title {
+    margin: 0;
+    font-size: var(--font-size-plan-title);
+    color: var(--primary-green-hover) !important;
+    transition: color var(--transition-speed) ease-in-out !important;
+  }
+
+  .price {
+    font-size: var(--font-size-price);
+    font-weight: bold;
+    color: var(--primary-green-hover) !important;
+    margin: 10px 0;
+    transition: color var(--transition-speed) ease-in-out !important;
+  }
+
+  .card-body {
+    flex-grow: 1;
+  }
+
+  .card-body ul li {
+    padding: 5px 0;
+    font-size: var(--font-size-card-body);
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  .card-body small {
+    color: var(--text-dark) !important;
+    transition: color var(--transition-speed) ease-in-out !important;
+  }
+
+  .card-plan .btn {
+    margin-top: auto;
+    width: 40%;
+    margin: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+/* ============================================= */
+/* ====== 7. COMPONENTES - CARDS DE FUNCIONALIDADES ====== */
+/* ============================================= */
+.funcionalidades-section {
+  padding: 80px 15px;
+}
+
+.funcionalidades-section h2 {
+  font-weight: 700;
+  margin-bottom: 4rem;
+}
+
+.funcionalidade-card {
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius);
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--shadow-color-light);
+  transition: transform var(--transition-speed) ease-in-out,
+    background-color var(--transition-speed) ease-in-out,
+    border-color var(--transition-speed) ease-in-out,
+    box-shadow var(--transition-speed) ease-in-out !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.funcionalidade-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 8px 25px var(--shadow-color-hover-light);
+}
+
+.funcionalidade-card i {
+  font-size: 3.5rem;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.funcionalidade-card h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.funcionalidade-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* ============================= */
+/* ====== 8. COMPONENTES - BOTÕES ====== */
+/* ============================= */
+.btn-primary {
+  background-color: var(--primary-green) !important;
+  border: none !important;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: transform var(--transition-speed),
+    background-color var(--transition-speed-slow) ease-in-out !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-green-hover) !important;
+  transform: scale(1.08);
+}
+
+/* ============================================= */
+/* ====== 9. COMPONENTES - SEÇÃO DE FAQ ====== */
+/* ============================================= */
+.faq-section {
+  padding: 80px 15px;
+  /* Fundo branco para diferenciar da seção de funcionalidades */
+}
+
+.accordion-item {
+  background-color: var(--bg-card-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius) !important;
+  /* Força o border-radius */
+  margin-bottom: 1rem;
+  overflow: hidden;
+  /* Garante que os cantos arredondados sejam aplicados corretamente */
+}
+
+/* Remove a borda padrão entre os itens e a sombra quando aberto */
+.accordion-item:first-of-type,
+.accordion-item:last-of-type {
+  border-radius: var(--border-radius) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: var(--primary-green);
+}
+
+.accordion-button {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Estilo do botão quando o accordion NÃO está colapsado (aberto) */
+.accordion-button:not(.collapsed) {
+  color: var(--primary-green);
+  background-color: rgba(31, 177, 131, 0.05);
+  /* Um fundo verde bem sutil */
+  box-shadow: none;
+}
+
+.accordion-body {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* Transições para o tema */
+.faq-section,
+.accordion-item,
+.accordion-button,
+.accordion-body {
+  transition: background-color var(--transition-speed) ease-in-out,
+    border-color var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out;
+}
+
+
+/* ============================= */
+/* ====== 10. COMPONENTES - IMAGENS ====== */
+/* ============================= */
+.rouded-image {
+  border-radius: 5%;
+  box-shadow: var(--box-shadow-banner);
+}
+
+/* ============================= */
+/* ====== 11. COMPONENTES - TEXTO ====== */
+/* ============================= */
+.text {
+  font-size: var(--font-size-banner-p);
+}
+
+.sobre-container {
+  padding: 30px !important;
+}
+
+/* ============================= */
+/* ====== 12. LAYOUT - CONTAINER ====== */
+/* ============================= */
+.container {
+  padding: 0 15px;
+  max-width: 1400px;
+}
+
+/* ============================= */
+/* ====== 13. TEMA PADRÃO (CLARO) ====== */
+/* ============================= */
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.navbar {
+  background-color: var(--bg-light) !important;
+  transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.navbar-brand {
+  color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a {
+  color: var(--text-dark) !important;
+  transition: transform var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a:hover {
+  color: var(--primary-green-hover) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--primary-green-hover) !important;
+}
+
+footer {
+  background-color: var(--bg-footer-light);
+  color: var(--text-dark);
+  transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+footer a {
+  color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+
+
+.card-body small {
+  color: var(--text-dark) !important;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+/* ALTERAÇÃO APLICADA: */
+.card-plan,
+.funcionalidade-card {
+  background-color: var(--bg-card-light);
+  border-color: var(--border-color-light);
+  box-shadow: 0 4px 12px var(--shadow-color-light);
+
+  /* A transição agora observa a mudança de todas estas propriedades */
+  transition: background-color var(--transition-speed) ease-in-out,
+    border-color var(--transition-speed) ease-in-out,
+    box-shadow var(--transition-speed) ease-in-out;
+}
+
+
+.funcionalidade-card p {
+  color: var(--text-muted-light);
+}
+
+/* Estilos para as novas seções */
+.funcionalidades-section,
+.faq-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(--bg-section-variant-light);
+  /* Aplica a cor do tema claro */
+  transition: background-color var(--transition-speed) ease-in-out;
+}
+
+
+
+/* ============================= */
+/* ====== 14. TEMA ESCURO ====== */
+/* ============================= */
+.escuro body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.escuro .navbar {
+  background-color: var(--bg-navbar-dark) !important;
+}
+
+.escuro .navbar-brand {
+  color: var(--text-light);
+}
+
+.escuro .navbar-nav a {
+  color: var(--text-light) !important;
+}
+
+.escuro .navbar-nav a:hover {
+  color: var(--primary-green-hover) !important;
+}
+
+.escuro .navbar-nav .nav-link.active {
+  color: var(--primary-green-dark) !important;
+}
+
+.escuro footer {
+  background-color: var(--bg-footer-dark);
+  color: var(--text-light);
+}
+
+.escuro footer a {
+  color: var(--text-light);
+}
+
+.escuro footer a:hover {
+  color: #17a2b8;
+}
+
+/* Banner modo escuro */
+.escuro .banner {
+  background-color: var(--bg-banner-dark);
+}
+
+.escuro .banner h1,
+.escuro .banner p {
+  color: #f5f5f5;
+}
+
+/* Cards modo escuro */
+.escuro .card-plan,
+.escuro .funcionalidade-card {
+  background-color: var(--bg-card-dark);
+  border-color: var(--border-color-dark);
+  box-shadow: 0 4px 12px var(--shadow-color-dark);
+}
+
+.escuro .card-body {
+  color: var(--text-light);
+}
+
+.escuro .card-body small {
+  color: var(--text-light) !important;
+}
+
+.escuro .card-header {
+  background-color: var(--card-header-dark) !important;
+}
+
+.escuro .plan-title {
+  color: var(--text-light) !important;
+}
+
+.escuro .price {
+  color: var(--primary-green-hover) !important;
+}
+
+.escuro .btn-primary {
+  background-color: var(--primary-green) !important;
+}
+
+.escuro .btn-primary:hover {
+  background-color: var(--primary-green-hover) !important;
+}
+
+.escuro .funcionalidade-card {
+  border-color: var(--border-color-dark);
+  box-shadow: 0 4px 12px var(--shadow-color-dark);
+}
+
+.escuro .funcionalidade-card:hover {
+  box-shadow: 0 8px 25px var(--shadow-color-hover-dark);
+}
+
+.escuro .funcionalidade-card h4 {
+  color: var(--text-light);
+}
+
+.escuro .funcionalidade-card p {
+  color: var(--text-muted-dark);
+}
+
+.escuro .accordion-item {
+  background-color: var(--bg-card-dark);
+  border-color: var(--border-color-dark);
+}
+
+.escuro .accordion-button {
+  background-color: var(--bg-card-dark);
+  color: var(--text-light);
+}
+
+.escuro .accordion-button:not(.collapsed) {
+  color: var(--primary-green);
+  background-color: rgba(31, 177, 131, 0.15);
+  /* Fundo verde um pouco mais forte no escuro */
+}
+
+.escuro .accordion-body {
+  color: var(--text-light) !important;
+}
+
+/* Dentro da sua seção de TEMA ESCURO */
+
+.escuro .funcionalidades-section,
+.escuro .faq-section {
+  background-color: var(--bg-section-variant-dark);
+  /* Aplica a cor do tema escuro */
+}
+
+
+/* ============================= */
+/* ====== 15. RESPONSIVIDADE ====== */
+/* ============================= */
+
+/* Telas médias - Tablets (992px e abaixo) */
+@media (max-width: 992px) {
+
+  /* Banner responsivo */
+  .banner h1 {
+    font-size: 2.2rem !important;
+  }
+
+  .banner p {
+    font-size: 1.1rem !important;
+  }
+
+  .banner .btn {
+    font-size: 0.9rem !important;
+    padding: 8px 16px !important;
+  }
+
+  .pricing-header h1 {
+    font-size: 2rem !important;
+  }
+
+  .pricing-header p {
+    font-size: 1rem !important;
+  }
+
+  .card-plan {
+    margin-bottom: 20px;
+  }
+
+  /* Navbar responsivo */
+  .navbar-collapse {
+    padding-top: 15px;
+  }
+
+  .navbar-nav {
+    margin-right: 0 !important;
+  }
+
+  .navbar-nav a {
+    margin: 5px 0 !important;
+    padding: 8px 15px !important;
+  }
+
+  .btn-group {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+
+
+  /* Seções Sobre Nós e Como Funciona - imagem abaixo do texto */
+  .sobre-container,
+  .como-funciona-container {
+    flex-direction: column !important;
+    padding: 20px !important;
+    text-align: center !important;
+  }
+
+  .sobre-container .col-md-6,
+  .como-funciona-container .col-md-6 {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .sobre-container img,
+  .como-funciona-container img {
+    order: 2 !important;
+    /* Força a imagem para baixo */
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .sobre-container .text-content,
+  .como-funciona-container .text-content {
+    order: 1 !important;
+    /* Força o texto para cima */
+  }
+
+  .sobre-container h2,
+  .sobre-container p,
+  .como-funciona-container h2,
+  .como-funciona-container p {
+    order: 1 !important;
+    text-align: center !important;
+  }
+
+  /* Se as seções usam row do Bootstrap */
+  .sobre-container .row,
+  .como-funciona-container .row {
+    flex-direction: column !important;
+  }
+
+  .info-section {
+    /* Força o empilhamento vertical */
+    flex-direction: column !important;
+    text-align: center; /* Centraliza o texto quando empilhado */
+}
+
+.info-section .col-md-6 {
+    /* Força cada coluna a ocupar 100% da largura */
+    width: 100% !important;
+    max-width: 650px; /* Limite para não ficar largo demais em tablets */
+}
+
+/* Garante que o texto venha antes da imagem na seção "Sobre Nós" */
+.info-section .order-md-2 {
+    order: 1 !important; /* Texto para cima */
+}
+.info-section .order-md-1 {
+    order: 2 !important; /* Imagem para baixo */
+    margin-top: 30px; /* Espaço entre texto e imagem */
+}
+
+  
+}
+
+
+
+/* Telas pequenas - Tablets pequenos e celulares grandes (768px e abaixo) */
+@media (max-width: 768px) {
+
+  /* Banner texto full width */
+  .banner-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+  }
+
+  .banner {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .banner h1,
+  .banner p {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .banner .btn {
+    align-self: center !important;
+    margin: 0 auto !important;
+  }
+
+  .banner-container {
+    width: 90% !important;
+    margin: 20px auto 0 !important;
+  }
+
+  /* Ajustes gerais */
+  .container {
+    padding: 0 10px;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  p,
+  li {
+    font-size: 1rem !important;
+  }
+
+  /* Evita zoom em inputs em iOS */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Cards e layout */
+  .row.text-center {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-lg-4,
+  .col-md-6,
+  .col-sm-12 {
+    width: 100% !important;
+    max-width: 400px;
+  }
+
+  .card-plan .btn {
+    width: 60% !important;
+    margin: 5% auto !important;
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 0;
+  }
+
+  .app-icon {
+    width: 120px !important;
+  }
+
+  footer p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Telas muito pequenas - Celulares (576px e abaixo) */
+@media (max-width: 576px) {
+
+  /* Banner */
+  .banner {
+    padding: 20px 15px !important;
+  }
+
+  .banner h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  .banner p {
+    font-size: 0.95rem !important;
+    margin-bottom: 20px !important;
+  }
+
+  .banner .img-fluid {
+    width: 100% !important;
+    margin: 15px auto !important;
+  }
+
+  /* Sobre container */
+  .sobre-container {
+    padding: 15px !important;
+    border-radius: var(--border-radius) !important;
+  }
+
+  .card-header h4 {
+    font-size: 1.3rem !important;
+  }
+
+  .card-header {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .price {
+    font-size: 1.8rem !important;
+  }
+
+  .card-body ul li {
+    font-size: 1rem !important;
+  }
+
+  /* Footer */
+  .app-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-icon {
+    width: 180px !important;
+    margin: 5px 0 !important;
+  }
+
+  /* Navbar */
+  .navbar-brand {
+    font-size: 1.3rem !important;
+  }
+
+  .navbar-brand img {
+    width: 40px !important;
+  }
+
+  .bi-person {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* ============================= */
+/* ====== 16. ACESSIBILIDADE ====== */
+/* ============================= */
+
+/* Melhora a área de toque para mobile */
+.btn,
+.nav-link {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Redução de movimento para usuários sensíveis */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================= */
+/* ====== 17. ANIMAÇÕES ====== */
+/* ============================= */
+
+body {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-primary {
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out !important;
+}
+
+
+.btn-primary:hover {
+  transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== MELHORIAS PARA DISPOSITIVOS MÓVEIS ===== */
+/* Evita zoom em inputs em iOS */
+@media (max-width: 768px) {
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Melhora a área de toque para mobile */
+.btn,
+.nav-link {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ======================================= */
+/* ====== 18. COMPONENTES - BOTÃO DE ALTERNAR TEMA ======= */
+/* ======================================= */
+
+#theme-toggle {
+  font-size: 1.2rem;
+  /* Tamanho do ícone */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  /* Remove o brilho do foco */
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Garante que os ícones não "escapem" durante a transição */
+}
+
+#theme-toggle .theme-icon-light,
+#theme-toggle .theme-icon-dark {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  position: absolute;
+  /* Coloca os ícones um sobre o outro */
+}
+
+/* === Estado Padrão (Tema Claro) === */
+/* A lua está visível */
+#theme-toggle .theme-icon-dark {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* O sol está escondido */
+#theme-toggle .theme-icon-light {
+  opacity: 0;
+  transform: translateY(20px);
+  /* Começa um pouco abaixo */
+}
+
+
+/* === Quando o Tema Escuro está Ativo === */
+/* A lua fica escondida */
+.escuro #theme-toggle .theme-icon-dark {
+  opacity: 0;
+  transform: translateY(-20px);
+  /* Sobe para sair */
+}
+
+/* O sol fica visível */
+.escuro #theme-toggle .theme-icon-light {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Adicione esta regra ao seu CSS */
+.escuro #theme-toggle .theme-icon-light {
+  color: var(--text-light);
+  /* Usa a variável de cor de texto claro (branco) */
+}

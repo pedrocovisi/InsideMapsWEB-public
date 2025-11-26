@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Pagamento - Inside Maps</title>
+    <link rel="icon" type="image/x-icon" href="assets/InsideMapsLogoVerde.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <script>
+        // Aplica o tema salvo
+        (function () {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'escuro') {
+                document.documentElement.classList.add('escuro');
+            }
+        })();
+    </script>
+    <style>
+        .confirmacao-container {
+            margin-top: 120px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .confirmacao-card {
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: inline-block;
+            max-width: 500px;
+        }
+        /* Ajuste para o modo escuro */
+        .escuro .confirmacao-card {
+            background-color: #1f1f1f;
+            color: #f1f1f1;
+            box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+        }
+        .confirmacao-icon {
+            font-size: 80px;
+            color: green;
+            margin-bottom: 20px;
+        }
+        .confirmacao-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .confirmacao-text {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        .btn-voltar {
+            padding: 10px 25px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/InsideMapsLogoVerde.svg" alt="Logo" width="70" class="d-inline-block align-text-top" />
+                Inside Maps
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Home</a>
+                    <a class="nav-link" href="membros.html"><i class="bi bi-people"></i> Membros</a>
+                    <a class="nav-link" href="contato.html"><i class="bi bi-telephone"></i> Contato</a>
+                    <a class="nav-link" href="login.html" id="btnPerfil"><i class="bi bi-person"></i></a>
+                    <div class="d-flex align-items-center ms-2">
+                        <button class="btn" id="theme-toggle" type="button">
+                            <i class="bi bi-moon-fill theme-icon-dark"></i>
+                            <i class="bi bi-brightness-high-fill theme-icon-light"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <div class="container confirmacao-container">
+        <div class="confirmacao-card">
+            <div class="confirmacao-icon">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <h2 class="confirmacao-title">Pagamento Confirmado!</h2>
+            <p class="confirmacao-text">Obrigado por sua compra. Seu pagamento foi processado com sucesso e em breve você receberá um e-mail com os detalhes.</p>
+            <a href="index.html" class="btn btn-success btn-voltar">Voltar para a Home</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light mt-5 pt-4 pb-4">
+        <div class="container text-center">
+            <h3>Baixar</h3>
+            <ul class="list-unstyled d-flex justify-content-center app-icons">
+                <li><a href="#" class="text-light"><img src="assets/google.png" class="app-icon" alt="Google Play"></a></li>
+                <li><a href="#" class="text-light"><img src="assets/apple.png" class="app-icon" alt="App Store"></a></li>
+            </ul>
+            <hr class="bg-light my-4" />
+            <p>&copy; 2024 Inside Maps. Todos os direitos reservados.</p>
+            <a href="#"><img src="assets/InsideMapsLogoVerde.svg" alt="Logo" width="30" height="24" class="d-inline-block" /></a>
+            <p>Inside Maps</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script para alternar tema -->
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function () {
+            document.documentElement.classList.toggle('escuro');
+            const isEscuro = document.documentElement.classList.contains('escuro');
+            localStorage.setItem('theme', isEscuro ? 'escuro' : 'claro');
+        });
+    </script>
+</body>
+</html>

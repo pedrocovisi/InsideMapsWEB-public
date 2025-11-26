@@ -1,0 +1,551 @@
+/* ============================= */
+/* ====== 1. VARIÁVEIS CSS (CUSTOM PROPERTIES) ====== */
+/* ============================= */
+:root {
+  /* Cores principais */
+  --primary-green: #1fb183;
+  --primary-green-hover: #348C70;
+  --primary-green-dark: #248c60;
+
+  /* Cores de texto */
+  --text-light: #ffffff;
+  --text-dark: #000000;
+  --text-muted: #6c757d;
+  --text-muted-hover: #495057;
+  --text-card: #666;
+
+  /* Cores de fundo */
+  --bg-light: #ffffff;
+  --bg-dark: #464545;
+  --bg-navbar-dark: #414141;
+  --bg-footer-light: #f8f9fa;
+  --bg-footer-dark: #343a40;
+  --bg-card-light: #ffffff;
+  --bg-card-dark: #464545;
+
+  /* Espaçamentos */
+  --navbar-height: 80px;
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+  --transition-speed-slow: 0.5s;
+  --margin-top: 120px;
+
+  /* Tamanhos de fonte */
+  --font-size-navbar: 1.2rem;
+  --font-size-navbar-brand: 1.8rem;
+  --font-size-icon-person: 1.7rem;
+
+  /* Sombras */
+  --box-shadow-card: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+  /* Transformações */
+  --transform-hover-card: scale(1.05);
+  --transform-hover-btn: scale(1.08);
+}
+
+/* ============================= */
+/* ====== 2. RESET E BASE ====== */
+/* ============================= */
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  padding-top: var(--navbar-height);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+  transition: background-color var(--transition-speed-slow) ease-in-out,
+    color var(--transition-speed-slow) ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================= */
+/* ====== 3. LAYOUT - NAVBAR ====== */
+/* ============================= */
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-navbar-brand);
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited,
+.navbar-brand:link {
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.navbar-brand img {
+  margin-right: 3%;
+}
+
+.navbar-nav {
+  font-size: var(--font-size-navbar);
+  margin-right: 2%;
+  align-items: center;
+}
+
+.navbar-nav a {
+  margin-right: 1%;
+  margin-left: 1%;
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a:hover {
+  transform: var(--transform-hover-card);
+}
+
+.bi-person {
+  font-size: var(--font-size-icon-person);
+}
+
+.btn-group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  height: 100%;
+  /* Garante altura uniforme */
+}
+
+.btn-group i,
+.btn-group svg {
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 1.2rem;
+  /* Ajuste para o mesmo tamanho dos ícones do membros.html */
+}
+
+
+/* ============================= */
+/* ====== 4. LAYOUT - FOOTER ====== */
+/* ============================= */
+.app-icons {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.app-icon {
+  width: 200px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.text-center {
+  margin-top: 0;
+}
+
+/* ============================= */
+/* ====== 5. COMPONENTES - CONTAINERS ====== */
+/* ============================= */
+.container.margin-top {
+  margin-top: var(--margin-top);
+}
+
+/* ============================= */
+/* ====== 6. COMPONENTES - CARDS ====== */
+/* ============================= */
+.contact-card {
+  transition: transform 0.2s,
+    background-color var(--transition-speed-slow) ease-in-out,
+    color var(--transition-speed) ease-in-out !important;
+  box-shadow: var(--box-shadow-card);
+  background-color: var(--bg-card-light);
+  border-radius: var(--border-radius);
+}
+
+.contact-card:hover {
+  transform: var(--transform-hover-card) !important;
+}
+
+.card-img-top {
+  height: auto;
+  width: 100%; /* Garante que a imagem ocupe toda a largura do card */
+  aspect-ratio: 1 / 1; /* Define a proporção para 1:1 (um quadrado perfeito) */
+  object-fit: cover; /* Redimensiona a imagem para preencher o container, cortando o excesso sem distorcer */
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.card-title {
+  font-weight: bold;
+  color: inherit;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.card-text {
+  color: var(--text-card);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+/* ============================= */
+/* ====== 7. COMPONENTES - BOTÕES ====== */
+/* ============================= */
+.btn-primary {
+  background-color: var(--primary-green) !important;
+  border: none !important;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color var(--transition-speed) ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-green-hover) !important;
+  transform: var(--transform-hover-btn);
+}
+
+/* ============================= */
+/* ====== 8. TEMA PADRÃO (CLARO) ====== */
+/* ============================= */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.navbar {
+  background-color: var(--bg-light) !important;
+  transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+.navbar-brand {
+  color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a {
+  color: var(--text-dark) !important;
+  transition: transform var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out;
+}
+
+.navbar-nav a:hover {
+  color: var(--primary-green-hover) !important;
+  transform: var(--transform-hover-card);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--primary-green-hover) !important;
+}
+
+footer {
+  background-color: var(--bg-footer-light);
+  color: var(--text-dark);
+  transition: background-color var(--transition-speed-slow) ease-in-out;
+}
+
+footer a {
+  color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+/* Cards modo claro */
+.contact-card {
+  background-color: var(--bg-card-light);
+  color: var(--text-dark);
+  transition: background-color var(--transition-speed-slow) ease-in-out,
+    color var(--transition-speed) ease-in-out;
+}
+
+.card-text {
+  color: var(--text-card);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.card-title {
+  color: var(--text-dark);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+/* ============================= */
+/* ====== 9. TEMA ESCURO ====== */
+/* ============================= */
+.escuro body {
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.escuro .navbar {
+  background-color: var(--bg-navbar-dark) !important;
+}
+
+.escuro .navbar-brand {
+  color: var(--text-light);
+}
+
+.escuro .navbar-nav a {
+  color: var(--text-light) !important;
+}
+
+.escuro .navbar-nav a:hover {
+  color: var(--primary-green-hover) !important;
+  transform: var(--transform-hover-card);
+}
+
+.escuro .navbar-nav .nav-link.active {
+  color: var(--primary-green-dark) !important;
+}
+
+.escuro footer {
+  background-color: var(--bg-footer-dark);
+  color: var(--text-light);
+}
+
+.escuro footer a {
+  color: var(--text-light);
+}
+
+.escuro footer a:hover {
+  color: #17a2b8;
+}
+
+/* Cards modo escuro */
+.escuro .contact-card {
+  background-color: var(--bg-card-dark);
+  color: var(--text-light);
+}
+
+.escuro .card-text {
+  color: var(--text-light) !important;
+}
+
+.escuro .card-title {
+  color: var(--text-light);
+}
+
+
+/* ============================= */
+/* ====== 10. RESPONSIVIDADE ====== */
+/* ============================= */
+
+/* Telas médias - Tablets (992px e abaixo) */
+@media (max-width: 992px) {
+
+  /* Navbar responsivo */
+  .navbar-collapse {
+    padding-top: 15px;
+  }
+
+  .navbar-nav {
+    margin-right: 0 !important;
+  }
+
+  .navbar-nav a {
+    margin: 5px 0 !important;
+    padding: 8px 15px !important;
+  }
+
+  .btn-group {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  /* Cards */
+  .contact-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* Telas pequenas - Tablets pequenos e celulares grandes (768px e abaixo) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .container.margin-top {
+    margin-top: 100px;
+  }
+
+  /* Cards */
+  .contact-card {
+    margin-bottom: 15px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 0;
+  }
+
+  .app-icon {
+    width: 120px !important;
+  }
+
+  footer p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Ajustes gerais */
+  h1,
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  p,
+  li {
+    font-size: 1rem !important;
+  }
+
+  /* Evita zoom em inputs em iOS */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Telas muito pequenas - Celulares (576px e abaixo) */
+@media (max-width: 576px) {
+
+  /* Navbar */
+  .navbar-brand {
+    font-size: 1.3rem !important;
+  }
+
+  .navbar-brand img {
+    width: 40px !important;
+  }
+
+  .bi-person {
+    font-size: 1.4rem !important;
+  }
+
+  /* Container */
+  .container.margin-top {
+    margin-top: 80px;
+  }
+
+  /* Cards */
+  .contact-card {
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    font-size: 1.3rem !important;
+  }
+
+  /* Footer */
+  .app-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-icon {
+    width: 180px !important;
+    margin: 5px 0 !important;
+  }
+
+  footer {
+    padding: 15px 0;
+  }
+
+  footer p {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* ============================= */
+/* ====== 11. ACESSIBILIDADE ====== */
+/* ============================= */
+
+/* Melhora a área de toque para mobile */
+.btn,
+.nav-link {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Redução de movimento para usuários sensíveis */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ======================================= */
+/* ====== BOTÃO DE ALTERNAR TEMA ======= */
+/* ======================================= */
+
+#theme-toggle {
+  font-size: 1.2rem;
+  /* Tamanho do ícone */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  /* Remove o brilho do foco */
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Garante que os ícones não "escapem" durante a transição */
+}
+
+#theme-toggle .theme-icon-light,
+#theme-toggle .theme-icon-dark {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  position: absolute;
+  /* Coloca os ícones um sobre o outro */
+}
+
+/* === Estado Padrão (Tema Claro) === */
+/* A lua está visível */
+#theme-toggle .theme-icon-dark {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* O sol está escondido */
+#theme-toggle .theme-icon-light {
+  opacity: 0;
+  transform: translateY(20px);
+  /* Começa um pouco abaixo */
+}
+
+
+/* === Quando o Tema Escuro está Ativo === */
+/* A lua fica escondida */
+.escuro #theme-toggle .theme-icon-dark {
+  opacity: 0;
+  transform: translateY(-20px);
+  /* Sobe para sair */
+}
+
+/* O sol fica visível */
+.escuro #theme-toggle .theme-icon-light {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Adicione esta regra ao seu CSS */
+.escuro #theme-toggle .theme-icon-light {
+  color: var(--text-light);
+  /* Usa a variável de cor de texto claro (branco) */
+}
